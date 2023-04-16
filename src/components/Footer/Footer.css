@@ -1,0 +1,124 @@
+.footer {
+    width: 100%;
+    background: #D3D2D2;
+    display: flex;
+}
+
+.footer__center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 1180px;
+    margin: 40px auto;
+}
+
+.footer__info {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer__logotip {
+    display: block;
+    width: 250px;
+}
+
+.footer__logo {
+    width: 218px;
+    height: 44px;
+    margin-bottom: 13px;
+    background-size: contain;
+    background-image: url("../../images/logo-2.png");
+}
+
+.footer__name {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+}
+
+.footer__contacts {
+    width: 218px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.footer__item {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.footer__icon {
+    width: 24px;
+    height: 24px;
+    background: #4A60AF;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    border: 4px solid #4A60AF;
+    border-radius: 50px;
+}
+
+.footer__iconicon {
+    height: 16px;
+    padding-top: 5px;
+    margin: 0;
+}
+
+.footer__icontext {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #4A60AF;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__notice {
+    display: flex;
+    flex-direction: column;
+    max-width: 248px;
+}
+
+.footer__text {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    text-align: right;
+    color: #000000;
+    padding: 3px;
+    margin: 0;
+}
+
+.footer__btn {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    text-align: right;
+    color: #000000;
+    padding: 17px 0;
+    border: none;
+    background-color: inherit;
+}
+
+.footer__copyright {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    padding: 0;
+    margin: 17px auto 0;
+}

@@ -1,0 +1,50 @@
+.quest {
+    width: 100%;
+}
+
+.quest__center {
+    display: flex;
+    max-width: 1080px;
+    flex-direction: column;
+    margin: 50px auto 34px;
+    align-items: center;
+    justify-content: center;
+}
+
+.quest__head {
+    margin: 0 auto 25px;
+    display: flex;
+}
+
+.quest__icon {
+    background-image: url(../../images/comments.svg);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    border: none;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin-right: 21px;
+    margin-top: 5px;
+    border-color: #009EEB;
+}
+
+.quest__title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 133%;
+    color: #575252;
+    padding: 0;
+}
+
+.quest__list {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+}
