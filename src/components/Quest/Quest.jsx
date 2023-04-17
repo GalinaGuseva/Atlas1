@@ -12,8 +12,8 @@ const Quest = () => {
                <div className='quest__title'>Вопросы и ответы</div>
              </div>                         
             <ul className="quest__list">            
-              {questionData.map(({ question, answer }) => (
-              <Question question={question} answer={answer} />
+              {questionData.map(({ id, question, answer }) => (
+              <Question question={question} answer={answer} key={id}/>
              ))}
            </ul>             
        </div>                         
