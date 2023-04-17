@@ -5,7 +5,7 @@ import icon2 from '../../images/icon12.png';
 import icon3 from '../../images/icon32.png';
 import icon4 from '../../images/icon33.png';
 
-const Main = () => {
+const Main = ({onUpClick}) => {
   return (
     <section className="main">
       <div className='main__center'>
@@ -18,6 +18,7 @@ const Main = () => {
             <button    
                type="button"           
                className="main__button link_button"
+               onClick={onUpClick}
                 >Попробовать бесплатно</button>      
             <ul className="main__list">
               <li className="main__item">

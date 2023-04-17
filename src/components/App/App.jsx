@@ -34,7 +34,7 @@ function handleSend({userName, job, email, phone}) {
 return (
     <div className="App">
       <Header onSendClick={handlePopupClick}/>
-      <Main />
+      <Main onUpClick={handlePopupClick}/>
       <About />
       <Preferences />
       <Tocall onAccor={handleAccordClick}/> 

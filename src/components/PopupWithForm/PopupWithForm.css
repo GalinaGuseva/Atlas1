@@ -11,7 +11,7 @@
     z-index: 10;
     opacity: 0;
     transition: visibility 0.5s, opacity 0.5s linear;
-    background-color: rgba(0, 0, 0, 0.9)
+    background-color: #162D77(0, 0, 0, 0.9)
 }
 
 .popup_opened {
@@ -63,7 +63,7 @@
     z-index: 1;
     margin: 0;
     background-color: #fff;
-    color: #000;
+    color: #162D77;
 }
 
 @media screen and (max-width: 1023px) {
@@ -153,7 +153,7 @@
     font-size: 18px;
     line-height: 1.22;
     text-align: center;
-    background-color: #000000;
+    background-color: #162D77;
     color: #ffffff;
     transition: all 0.2s ease-in;
     cursor: pointer;
