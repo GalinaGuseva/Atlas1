@@ -9,18 +9,17 @@ const Main = ({onUpClick}) => {
   return (
     <section className="main">
       <div className='main__center'>
-        <div className='main__text'>
-           <h1 className="main__title">Автоматизация аптек под ключ</h1>
+        <div className='main-block'>
+           <div className='main__text'>
+           <h1 className="main__title">Автоматизация аптек под&nbsp;ключ</h1>
            <h2 className="main__subtitle">Готовое комплексное решение</h2>
-        </div>        
-        <div className='main__container'>
-          <div className='main__columns'>
-            <button    
+           </div>        
+           <button   
                type="button"           
                className="main__button link_button"
                onClick={onUpClick}
                 >Попробовать бесплатно</button>      
-            <ul className="main__list">
+           <ul className="main__list">
               <li className="main__item">
                  <img src={icon1} alt="icon1" className="main__icon icon" />
                  <p className='main__icontext'>Полный комплекс программ</p>
@@ -37,11 +36,10 @@ const Main = ({onUpClick}) => {
                   <img src={icon4} alt="icon4" className="main__icon icon" />
                   <p className='main__icontext'>Быстрая и дружелюбная техподдержка</p>
                </li>          
-             </ul>
-          </div>
+            </ul>
+          </div>         
           <div className="main__image"></div>
-          </div>
-        </div>                
+      </div>                                  
     </section>
   );
 };

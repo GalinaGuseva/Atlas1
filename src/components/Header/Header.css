@@ -4,8 +4,9 @@
 
 .header__center {
     display: flex;
-    max-width: 1180px;
-    margin: 40px auto 60px;
+    max-width: 1280px;
+    margin: 20px auto 0;
+    padding: 0 50px;
     align-items: center;
     justify-content: space-between;
 }
@@ -14,9 +15,15 @@
     width: 183px;
     height: 37px;
     display: block;
-    margin: 0;
+    margin-right: 80px;
     background-size: contain;
     background-image: url("../../images/Logo.png");
+}
+
+.header__block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav {
@@ -38,6 +45,10 @@
     text-decoration: none;
 }
 
+.header__nav-burger {
+    display: none;
+}
+
 .button-header {
     box-sizing: border-box;
     width: 182.3px;
@@ -57,14 +68,83 @@
     padding: 10px 20px;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1200px) {
     .header__center {
-        max-width: 768px;
+        max-width: 1200px;
+        padding: 0 30px;
+    }
+
+    .header__logo {
+        margin-right: 40px;
+    }
+
+    .header__nav {
+        max-width: 540px;
+    }
+
+    .nav__link {
+        margin-right: 25px;
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1100px) {
     .header__center {
-        max-width: 400px;
+        max-width: 1100px;
     }
+
+    .header__logo {
+        margin-right: 20px;
+    }
+
+    .nav__link {
+        margin-right: 20px;
+    }
+
+    .nav {
+        max-width: 520px;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+    .header__center {
+        max-width: 1000px;
+    }
+
+    .header__block {
+        display: none;
+    }
+
+    .header__nav-burger {
+        display: flex;
+        border: none;
+        width: 32px;
+        height: 32px;
+        background-image: url(../../images/menu.svg);
+        background-color: inherit;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        object-fit: contain;
+        transition: 0.2s ease-in;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header__center {
+        max-width: 320px;
+        padding: 0 20px;
+        margin: 20px auto 20px;
+    }
+
+    .header__nav-burger {
+        width: 20px;
+        height: 20px;
+    }
+
+    .header__logo {
+        width: 79px;
+        height: 16.4px;
+    }
+
 }

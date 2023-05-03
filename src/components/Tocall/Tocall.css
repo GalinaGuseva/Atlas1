@@ -6,8 +6,7 @@
 .tocall__center {
     display: flex;
     max-width: 1180px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 50px 20px;
     margin: 0 auto;
     justify-content: space-between;
 }
@@ -35,7 +34,7 @@
 .tocall__icons {
     display: flex;
     justify-content: space-between;
-    padding-top: 40px;
+    padding: 40px 20px;
 }
 
 .tocall__button {
@@ -60,7 +59,7 @@
 
 .tocall__icon {
     border-color: #FFFFFF;
-    width: 22px;
+    width: 18px;
     box-sizing: border-box;
     padding: 0;
 }
@@ -160,4 +159,114 @@
     text-decoration: underline;
     border: none;
     background: inherit;
+}
+
+@media screen and (max-width: 1100px) {
+    .tocall__center {
+        max-width: 1000px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .tocall__center {
+        max-width: 720px;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .tocall__block {
+        max-width: 720px;
+        margin: 0 auto;
+    }
+
+    .tocall__text {
+        font-size: 20px;
+    }
+
+    .tocall__icons {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        width: 530px;
+        margin: 0 auto;
+    }
+
+    .tocall__form {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .tocall__center {
+        max-width: 280px;
+    }
+
+    .tocall__block {
+        max-width: 280px;
+    }
+
+    .tocall__text {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .tocall__icons {
+        padding: 20px 0 40px;
+        width: 280px;
+        margin: 0 auto;
+    }
+
+    .tocall__button {
+        width: 80px;
+        height: 29px;
+        font-size: 12px;
+        line-height: 20px;
+        padding: 5px 8px;
+        gap: 7px;
+    }
+
+    .tocall__icon {
+        width: 13px;
+    }
+
+    .tocall__form {
+        width: 280px;
+    }
+
+    .tocall__item {
+        margin-bottom: 11px;
+    }
+
+    .tocall__item_blue {
+        padding: 15px 0px;
+    }
+
+    .tocall__phone {
+        width: 12px;
+        height: 12px;
+        border-color: #929AA2;
+        padding: 0px;
+        margin-left: 23px;
+    }
+
+    .tocall__email {
+        width: 16px;
+        height: 12px;
+        border-color: #929AA2;
+        padding: 0px;
+        margin-left: 23px;
+    }
+
+    .tocall__field {
+        font-size: 12px;
+        margin: 11px 10px;
+    }
+
+    .tocall__field_blue {
+        font-size: 14px;
+    }
+
+    .tocall__item_thin {
+        height: 16px;
+    }
 }

@@ -9,7 +9,7 @@ const About = () => {
           <div className='about__maintext'>
             <p className='about__overhead'>О системе</p>
              <h2 className="about__title">Программный комплекс "Атлас" - это удобно и надёжно</h2>
-             <h3 className="about__subtitle">Экономьте время и деньги при работе с заказами</h3>
+             <h3 className="about__subtitle">Экономьте время и деньги при работе с&nbsp;заказами</h3>
           </div>        
           <div className='about__container'>
              <img src={image} alt="аптека" className="about__image" /> 

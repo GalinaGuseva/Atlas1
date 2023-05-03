@@ -55,3 +55,34 @@
     display: block;
     margin: 0;
 }
+
+@media screen and (max-width: 600px) {
+    .quest__item {
+        margin-bottom: 12px;
+    }
+
+    .quest__field {
+        padding: 8px 17px;
+    }
+
+    .quest__faq {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .quest__check {
+        margin: 15px;
+        width: 15px;
+        height: 10px;
+    }
+
+    .quest__check_active {
+        transform: rotate(180deg);
+    }
+
+    .quest__answer {
+        font-size: 12px;
+        line-height: 16px;
+        padding: 15px;
+    }
+}

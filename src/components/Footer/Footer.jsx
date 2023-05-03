@@ -7,8 +7,9 @@ import number from '../../images/telephon.png';
 const Footer = ({onAccord}) => {
     return (
       <section className='footer' id='contacts'>
-          <div className='footer__center'>             
-            <div className='footer__info'>            
+        <div className='footer__center'>             
+          <div className='footer__info'>
+            <div className='footer__container'>            
               <div className='footer__logotip'>
                 <div className="footer__logo"></div>
                 <p className='footer__name'>Информационные технологии  Атлас - автоматизация аптек и аптечных сетей</p>
@@ -23,12 +24,13 @@ const Footer = ({onAccord}) => {
                   <p className='footer__icontext'>aptATLAS@mail.ru</p>
                 </li>              
               </ul>
-              <div className='footer__notice'>
+             </div>            
+             <div className='footer__notice'>
                 <p className='footer__text'>Информация, размещённая на сайте, не является публичной офертой</p>
-                <button type="button" onClick={onAccord} className='footer__btn'>Политика конфиденциальности</button>
-              </div>
-            </div>
-            <div className='footer__copyright'>© 2015 - 2023 Информационные технологии "АТЛАС" / Все права защищены</div>            
+                <button type="button" onClick={onAccord} className='footer__btn'>Политика конфиденциальности</button>            
+             </div>
+          </div>
+          <div className='footer__copyright'>© 2015 - 2023 Информационные технологии "АТЛАС" / Все права защищены</div>            
        </div>                         
      </section>
     );

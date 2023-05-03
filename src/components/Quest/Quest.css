@@ -48,3 +48,42 @@
     list-style: none;
     padding: 0;
 }
+
+@media screen and (max-width: 1100px) {
+    .quest__center {
+        max-width: 1000px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .quest__center {
+        max-width: 720px;
+    }
+
+    .quest__icon {
+        width: 36px;
+        height: 36px;
+        margin-right: 17px;
+    }
+
+    .quest__title {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .quest__center {
+        max-width: 280px;
+    }
+
+    .quest__icon {
+        width: 25px;
+        height: 25px;
+        margin-right: 17px;
+    }
+
+    .quest__title {
+        font-size: 15px;
+    }
+
+}

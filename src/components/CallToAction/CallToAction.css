@@ -192,3 +192,109 @@
     line-height: 1.5;
     color: #2E363E;
 }
+
+@media screen and (max-width: 1100px) {
+    .call__center {
+        max-width: 1000px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .call__center {
+        flex-direction: column-reverse;
+        max-width: 580px;
+        padding-top: 50px;
+        padding-bottom: 40px;
+        margin: 0 auto;
+        justify-content: flex-start;
+    }
+
+    .call__text {
+        margin: 0;
+        width: 100%;
+    }
+
+    .call__title {
+        font-size: 30px;
+        margin-bottom: 14px;
+    }
+
+    .call__icons {
+        margin-bottom: 55px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .call__center {
+        max-width: 280px;
+        padding: 20px;
+    }
+
+    .call__title {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+
+    .call__subtitle {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    .call__icons {
+        max-width: 264px;
+        gap: 58px 20px;
+    }
+
+    .call__icon {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 10px;
+    }
+
+    .call__icontext {
+        font-size: 10px;
+    }
+
+    .call__form {
+        max-width: 280px;
+        display: flex;
+        padding: 14px 20px;
+        gap: 20px;
+        background: #FFFFFF;
+        border: none;
+        margin: 0 auto;
+    }
+
+    .call__header {
+        width: 139px;
+        margin: 0 auto;
+        font-size: 14px;
+    }
+
+    .call__field {
+        width: 100%;
+        padding: 20px 29px;
+        font-size: 12px;
+    }
+
+    .call__button {
+        max-width: 260px;
+        font-size: 13px;
+        margin-bottom: 10px;
+        padding: 13px 68px;
+    }
+
+    .call__field_thin {
+        font-size: 10px;
+        height: 13px;
+    }
+
+
+    .call__thin {
+        font-size: 10px;
+    }
+
+    .call__btn {
+        font-size: 10px;
+    }
+}
