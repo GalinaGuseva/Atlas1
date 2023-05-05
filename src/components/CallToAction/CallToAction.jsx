@@ -13,7 +13,7 @@ const CallToAction = ({ onAcc }) => {
       <section className="call">
          <div className='call__center'>
             <ul className='call__form'>
-               <li className='call__header'>Заявка на подключение</li>      
+               <li className='call__header'>Заявка на&nbsp;подключение</li>      
                <li className='call__field'>Ваше имя</li>
                <li className='call__field'>Название организации</li>
                <li className='call__field'><img src={email} alt="email" className="call__email" />E-mail (для уведомлений)</li>

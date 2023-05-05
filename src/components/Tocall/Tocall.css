@@ -212,12 +212,12 @@
 
     .tocall__icons {
         padding: 20px 0 40px;
-        width: 280px;
+        width: 260px;
         margin: 0 auto;
     }
 
     .tocall__button {
-        width: 80px;
+        width: 90px;
         height: 29px;
         font-size: 12px;
         line-height: 20px;
@@ -225,12 +225,20 @@
         gap: 7px;
     }
 
+    .tocall__button:first-of-type {
+        width: 80px;
+    }
+
+    .tocall__button:last-of-type {
+        width: 60px;
+    }
+
     .tocall__icon {
         width: 13px;
     }
 
     .tocall__form {
-        width: 280px;
+        width: 260px;
     }
 
     .tocall__item {
@@ -268,5 +276,13 @@
 
     .tocall__item_thin {
         height: 16px;
+    }
+
+    .tocall__field_thin {
+        font-size: 10px;
+    }
+
+    .tocall__btn {
+        font-size: 10px;
     }
 }

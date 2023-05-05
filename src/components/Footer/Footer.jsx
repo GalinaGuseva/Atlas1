@@ -12,7 +12,7 @@ const Footer = ({onAccord}) => {
             <div className='footer__container'>            
               <div className='footer__logotip'>
                 <div className="footer__logo"></div>
-                <p className='footer__name'>Информационные технологии  Атлас - автоматизация аптек и аптечных сетей</p>
+                <p className='footer__name'>Информационные технологии  Атлас - автоматизация аптек и&nbsp;аптечных сетей</p>
               </div>
               <ul className='footer__contacts'>              
                 <li className='footer__item'>
