@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Tocall.css';
 import telegram from '../../images/Telegram-icon.svg';
 import viber from '../../images/Viber-icon.svg';
@@ -6,7 +7,7 @@ import vk from '../../images/vk-icon.svg';
 import phone from '../../images/phone-icon.svg';
 import email from '../../images/email-icon.svg';
 
-const Tocall = ({onAccor}) => {
+const Tocall = () => {
     return (
       <section className="tocall">
         <div className='tocall__center'>
@@ -39,7 +40,7 @@ const Tocall = ({onAccor}) => {
               </li>
               <li className="tocall__item_thin">
                 <input type="checkbox" className="tocall__check" />                
-                <span className='tocall__field_thin link'>Соглашаюсь с <button type="button" onClick={onAccor} className='tocall__btn'>условиями передачи данных</button></span>
+                <span className='tocall__field_thin link'>Соглашаюсь с <Link to="/policy" className='tocall__btn'>условиями передачи данных</Link></span>                
               </li> 
           </ul>            
        </div>                         

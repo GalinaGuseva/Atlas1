@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './CallToAction.css';
 import phone from '../../images/phone-icon.svg';
 import email from '../../images/email-icon.svg';
@@ -8,7 +9,7 @@ import shopping from '../../images/shopping.svg';
 import gift from '../../images/gift.svg';
 
 
-const CallToAction = ({ onAcc }) => {
+const CallToAction = () => {
     return (
       <section className="call">
          <div className='call__center'>
@@ -22,7 +23,8 @@ const CallToAction = ({ onAcc }) => {
                   <div className='call__button'>Отправить заявку</div>
                   <div className="call__field_thin">
                     <input type="checkbox" className="call__check" />
-                    <span className='call__thin'>Соглашаюсь с <button type="button" onClick={onAcc} className='call__btn'>условиями передачи данных</button></span>                    
+                    <span className='call__thin'>Соглашаюсь с <Link to="/policy" className='call__btn'>условиями передачи данных</Link></span>                  
+                                  
                   </div>
               </li>
             </ul>

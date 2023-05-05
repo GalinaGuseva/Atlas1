@@ -1,0 +1,291 @@
+.first {
+  width: 100%;
+}
+
+.first__center {
+  display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+  min-height: 690px;
+  padding: 65px 0;
+  margin: 0 auto;
+  position: relative;
+}
+
+.first-block {
+  display: flex;
+  max-width: 1000px;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+}
+
+.first__image {
+  position: absolute;
+  right: 0;
+  bottom: 65px;
+  background-image: url('../../images/аптека.png');
+  width: 100%;
+  height: 603px;
+  box-sizing: border-box;
+  margin: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right 0% bottom 0%;
+  z-index: 5;
+}
+
+.first__text {
+  max-width: 1051px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  align-items: flex-start;
+}
+
+.first__title {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 60px;
+  letter-spacing: -2px;
+  color: #162D77;
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+}
+
+.first__subtitle {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.43;
+  letter-spacing: -0.2px;
+  color: #434B53;
+  margin: 0;
+  padding: 14px 0 0 0;
+  z-index: 10;
+}
+
+.first__button {
+  box-sizing: border-box;
+  margin: 50px 0;
+  width: 355px;
+  height: 70px;
+  background-color: #E8246B;
+  border-radius: 25px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  transform: rotate(-0.09deg);
+  border: none;
+  color: white;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: -0.04em;
+  text-align: center;
+  padding: 19px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.first__list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  max-width: 464px;
+  gap: 50px;
+  padding: 0;
+}
+
+.first__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.first__icon {
+  width: 56px;
+  height: 56px;
+}
+
+.first__icontext {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #2E363E;
+}
+
+@media screen and (max-width: 1100px) {
+  .first__center {
+    max-width: 1000px;
+    min-height: 690px;
+  }
+
+  .first__image {
+    height: 503px;
+    right: 10px;
+  }
+
+  .first-block {
+    max-width: 900px;
+    left: 10px;
+  }
+
+  .first__list {
+    max-width: 454px;
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .first__center {
+    max-width: 960px;
+    min-height: 690px;
+  }
+
+  .first__image {
+    height: 503px;
+    right: -180px;
+    overflow-x: hidden;
+  }
+
+  .first-block {
+    max-width: 900px;
+    left: 10px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .first__center {
+    flex-direction: column-reverse;
+    max-width: 760px;
+    min-height: 1140px;
+    padding: 0 20px;
+    margin: 34px auto 0;
+  }
+
+  .first__image {
+    position: absolute;
+    right: 20px;
+    top: 0px;
+    height: 548px;
+    width: 681px;
+  }
+
+  .first-block {
+    right: 20px;
+    left: 20px;
+    top: 550px;
+    width: 100%;
+    align-items: center;
+  }
+
+  .first__text {
+    max-width: 680px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .first__title {
+    font-size: 36px;
+    line-height: 24px;
+    text-align: center;
+    margin: 35px auto 12px;
+  }
+
+  .first__subtitle {
+    font-size: 24px;
+    line-height: 34px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .first__button {
+    margin: 30px auto 70px;
+  }
+
+  .first__list {
+    max-width: 514px;
+    margin: 0 auto;
+  }
+
+  .first__icon {
+    margin: 0 auto;
+  }
+
+  .first__icontext {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .first__image {
+    height: 484px;
+    width: 601px;
+  }
+
+  .first-block {
+    top: 486px;
+  }
+
+  .first__title {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .first__center {
+    max-width: 280px;
+    min-height: 600px;
+    padding: 5px 20px 20px;
+    margin: 0 auto;
+  }
+
+  .first__image {
+    height: 220px;
+  }
+
+  .first-block {
+    top: 220px;
+  }
+
+  .first__text {
+    max-width: 238px;
+  }
+
+  .first__title {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 15px auto 13px;
+  }
+
+  .first__subtitle {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .first__button {
+    margin: 20px auto 30px;
+    width: 183px;
+    height: 33px;
+    font-size: 12px;
+    line-height: 15px;
+    padding: 15px;
+  }
+
+  .first__list {
+    max-width: 260px;
+    gap: 13px;
+  }
+
+  .first__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .first__icontext {
+    font-weight: 400;
+    font-size: 12px;
+  }
+}

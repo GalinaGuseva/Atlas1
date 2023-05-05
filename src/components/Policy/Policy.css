@@ -1,0 +1,73 @@
+.policy {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    font-family: "Montserrat";
+    font-style: normal;
+    color: #162D77;
+}
+
+.policy__center {
+    width: 800px;
+    margin: 0 auto;
+    padding: 40px 50px 20px;
+}
+
+.policy__title {
+    margin: 12px auto;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 130%;
+    text-align: center;
+    padding: 0;
+}
+
+.policy__text {
+    font-size: 14px;
+    margin: 14px;
+}
+
+.policy__link {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #204c8f;
+    padding: 0;
+    text-align: center;
+    margin: 0 auto 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    .policy__center {
+        max-width: 800px;
+        padding: 40px 50px 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .policy__center {
+        max-width: 600px;
+    }
+
+    .policy__title {
+        font-size: 25px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+    .policy__center {
+        max-width: 280px;
+        padding: 30px 10px;
+    }
+
+    .policy__title {
+        font-size: 18px;
+    }
+
+    .policy__text {
+        font-size: 12px;
+        margin: 10px;
+    }
+}

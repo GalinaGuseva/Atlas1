@@ -1,10 +1,11 @@
 import React from 'react';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 import phone from '../../images/phone-bold.svg';
 import email from '../../images/email-white.svg';
 import number from '../../images/telephon.png';
 
-const Footer = ({onAccord}) => {
+const Footer = () => {
     return (
       <section className='footer' id='contacts'>
         <div className='footer__center'>             
@@ -25,9 +26,11 @@ const Footer = ({onAccord}) => {
                 </li>              
               </ul>
              </div>            
-             <div className='footer__notice'>
+             <div className='footer__notice'>             
                 <p className='footer__text'>Информация, размещённая на сайте, не является публичной офертой</p>
-                <button type="button" onClick={onAccord} className='footer__btn'>Политика конфиденциальности</button>            
+                <Link to="/policy" className='footer__btn'>
+                  <p>Политика конфиденциальности</p>
+                </Link>                            
              </div>
           </div>
           <div className='footer__copyright'>© 2015 - 2023 Информационные технологии "АТЛАС" / Все права защищены</div>            
