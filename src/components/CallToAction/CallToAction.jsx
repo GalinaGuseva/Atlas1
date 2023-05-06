@@ -20,7 +20,7 @@ const CallToAction = () => {
                <li className='call__field'><img src={email} alt="email" className="call__email" />E-mail (для уведомлений)</li>
                <li className='call__field'><img src={phone} alt="phone" className="call__phone" />Номер телефона</li>
                <li className="call__bottom">
-                  <div className='call__button'>Отправить заявку</div>
+                  <button type="button" className='call__button'>Отправить заявку</button>
                   <div className="call__field_thin">
                     <input type="checkbox" className="call__check" />
                     <span className='call__thin'>Соглашаюсь с <Link to="/policy" className='call__btn'>условиями передачи данных</Link></span>                  

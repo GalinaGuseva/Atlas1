@@ -36,7 +36,7 @@ const Tocall = () => {
                 <p className='tocall__field'>E-mail</p>                
               </li>              
               <li className="tocall__item tocall__item_blue">
-                <p className='tocall__field_blue'>Перезвоните мне</p>
+                <button type="button" className='tocall__field_blue'>Перезвоните мне</button>
               </li>
               <li className="tocall__item_thin">
                 <input type="checkbox" className="tocall__check" />                
