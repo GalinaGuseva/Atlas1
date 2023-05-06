@@ -1,38 +1,21 @@
 import React from "react";
-import { Routes, Route } from 'react-router-dom';
-import Header from "../Header/Header";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from "../Main/Main";
 import Policy from "../Policy/Policy";
 import NotFound from "../NotFound/NotFound";
-import PopupWithForm from "../PopupWithForm/PopupWithForm";
 
-
-function App() {
- 
-  const [isPopupWithFormOpen, setIsPopupWithFormOpen] = React.useState(false);
-
-function handlePopupClick(e) {
-  setIsPopupWithFormOpen(true);
-} 
-
-function closeAllPopups() {  
-  setIsPopupWithFormOpen(false);        
-} 
-
-function handleSend({userName, job, email, phone}) {
-  console.log(userName, job, email, phone);
-};
+const App = () => {
 
 return (
-    <div className="App">
-      <Header onSendClick={handlePopupClick}/>
+  <BrowserRouter>
+    <div className="App">      
       <Routes>
-      <Route exact path="/" element={<Main onUpClick={handlePopupClick}/>} />      
-      <Route path="/policy" element={<Policy />} />
+      <Route path="/" element={<Main />} />      
+      <Route path="policy" element={<Policy />} />
       <Route path="/*" element={<NotFound />} />
-      </Routes>    
-      <PopupWithForm isOpen={isPopupWithFormOpen} onClose={closeAllPopups} onSubmit={handleSend} />
+      </Routes>     
     </div>
+    </BrowserRouter>
   );
 }
 

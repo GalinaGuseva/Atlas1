@@ -11,7 +11,7 @@
     z-index: 10;
     opacity: 0;
     transition: visibility 0.5s, opacity 0.5s linear;
-    background-color: #162D77(0, 0, 0, 0.9)
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .popup_opened {
@@ -23,7 +23,7 @@
     background-image: url(../../images/Close.svg);
     width: 32px;
     height: 32px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
     box-sizing: border-box;
     background-size: cover;
     background-position: center;
