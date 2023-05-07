@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 
-export default function HeaderMain({ onSendClick }) {
+export default function HeaderMain({ onSendClick, onShowMenu }) {
   return (
     <header className="header">
       <div className='header__center'>
@@ -24,7 +24,7 @@ export default function HeaderMain({ onSendClick }) {
            <button type="button" onClick={onSendClick} className="button-header link"
              >Оставить заявку</button>
          </div>
-         <button type="button" className="header__nav-burger"></button>
+         <button type="button" onClick={onShowMenu}className="header__nav-burger"></button>
       </div>
   </header>
   );

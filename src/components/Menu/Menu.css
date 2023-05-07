@@ -1,0 +1,120 @@
+.menu {
+    opacity: 0;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-in-out;
+    z-index: 100;
+}
+
+.menu_active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu__container {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 30%;
+    max-width: 300px;
+    min-height: 273px;
+    background: #F2F1F1;
+    margin-left: auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu__container_visible {
+    transform: translateX(0);
+}
+
+.menu__container_hidden {
+    transform: translateX(100%);
+}
+
+.menu__bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.menu__btn-close {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-image: url(../../images/close-black.svg);
+    width: 11px;
+    height: 11px;
+    border: none;
+    padding: 0;
+    background-position: center;
+    background-color: inherit;
+    flex-shrink: 1;
+}
+
+.menu__nav {
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 22px;
+    margin: 0 auto;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    align-items: center;
+    color: #2E363E;
+}
+
+.menu__link {
+    text-decoration: none;
+    margin-bottom: 20px;
+    padding-bottom: 4px;
+    color: #2E363E;
+}
+
+.menu__btn-form {
+    margin: 10px auto 42px;
+    box-sizing: border-box;
+    width: 203px;
+    height: 42px;
+    background: linear-gradient(240.52deg, rgba(58, 105, 161, 0.38) 31.94%, rgba(168, 203, 239, 0) 146.49%);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 20px;
+    border: none;
+    transform: rotate(-0.09deg);
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    line-height: 19px;
+    color: #575252;
+    padding: 10px 20px;
+}
+
+@media screen and (max-width: 700px) {
+    .menu__container {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .menu__container {
+        width: 100%;
+        margin: 0;
+    }
+
+    .menu__nav {
+        width: 100%;
+    }
+}
