@@ -23,8 +23,7 @@ const CallToAction = () => {
                   <button type="button" className='call__button'>Отправить заявку</button>
                   <div className="call__field_thin">
                     <input type="checkbox" className="call__check" />
-                    <span className='call__thin'>Соглашаюсь с <Link to="/policy" className='call__btn'>условиями передачи данных</Link></span>                  
-                                  
+                    <span className='call__thin'>Соглашаюсь с <Link to="/policy" className='call__btn'>условиями передачи данных</Link></span>          
                   </div>
               </li>
             </ul>

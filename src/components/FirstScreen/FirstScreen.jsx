@@ -5,7 +5,7 @@ import icon2 from '../../images/icon12.png';
 import icon3 from '../../images/icon32.png';
 import icon4 from '../../images/icon33.png';
 
-const FirstScreen = ({onUpClick}) => {
+const FirstScreen = ( {onUpClick} ) => {
   return (
     <section className="first">
       <div className='first__center'>

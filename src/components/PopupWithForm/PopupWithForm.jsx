@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import  './PopupWithForm.css';
 import { useForm } from "../../hooks/UseForm.js";
 
@@ -82,6 +83,12 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
           className="popup__btn-submit"
           title="Send"
         >Отправить заявку</button>
+         <div className="popup__field_thin">
+            <input 
+              type="checkbox" 
+              className="popup__check" />
+            <span className='popup__thin'>Соглашаюсь с <Link to="/policy" className='popup__btn'>условиями передачи данных</Link></span>
+          </div>           
       </form>
     </div>
   ) : null;

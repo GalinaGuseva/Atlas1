@@ -9,7 +9,7 @@ import NotFound from "./components/NotFound/NotFound";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( 
-    <Router basename="/">
+    <Router basename="/Atlas1">
       <Routes>
       <Route path="/" element={<App />} />      
       <Route exact path="/policy" element={<Policy />} />
