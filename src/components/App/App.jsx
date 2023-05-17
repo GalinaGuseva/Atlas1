@@ -10,9 +10,13 @@ import CallToAction from '../CallToAction/CallToAction';
 import Footer from '../Footer/Footer';
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 
+
+
 const App = () => {
   const [isPopupWithFormOpen, setIsPopupWithFormOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
@@ -26,8 +30,12 @@ const App = () => {
     setIsPopupWithFormOpen(false);        
   } 
   
-  function handleSend({userName, job, email, phone}) {
-    console.log(userName, job, email, phone);
+  function handleSend(values) {
+    console.log(values);
+    setSuccess('Всё зашибись!)');
+        setTimeout(() => setSuccess(''), 2000);
+        setError('Или нет');
+        setTimeout(() => setError(''), 2000);
   }; 
 
 return (
@@ -37,11 +45,18 @@ return (
       <FirstScreen onUpClick={handlePopupClick}/>         
       <About />
       <Preferences />
-      <Tocall/> 
+      <Tocall onCallSubmit={handleSend}/> 
       <Quest />
-      <CallToAction/>
+      <CallToAction onLastSubmit={handleSend}/>
       <Footer/> 
-      <PopupWithForm isOpen={isPopupWithFormOpen} onClose={closeAllPopups} onSubmit={handleSend} />        
+      <PopupWithForm 
+            isOpen={isPopupWithFormOpen} 
+            onClose={closeAllPopups} 
+            onSubmit={handleSend} 
+            setError={setError}
+            error={error}
+            success={success}
+            />        
 </>  
         
   );

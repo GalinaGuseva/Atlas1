@@ -132,7 +132,7 @@
 
 @media screen and (max-width: 800px) {
     .header__center {
-        max-width: 700px;
+        max-width: 600px;
         padding: 0;
     }
 }

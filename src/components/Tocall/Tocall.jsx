@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import './Tocall.css';
 import telegram from '../../images/Telegram-icon.svg';
@@ -6,8 +6,31 @@ import viber from '../../images/Viber-icon.svg';
 import vk from '../../images/vk-icon.svg';
 import phone from '../../images/phone-icon.svg';
 import email from '../../images/email-icon.svg';
+import { useFormWithValidation } from "../../hooks/UseFormWithValidation";
+import { regExp } from "../../constants/RegExp";
 
-const Tocall = () => {
+const Tocall = ({ onSubmit }) => {
+  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation({   
+    email: "",
+    phone: "",
+  });
+  const [isDisabled, setIsDisabled] = useState(true);  
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    onSubmit(values); 
+  }
+
+  useEffect(() => {   
+      setIsDisabled(
+        !values.email || !values.phone || !isValid
+      );   
+  }, [handleChange, isValid, values]);
+
+  useEffect(() => {
+    resetForm();
+  }, [resetForm]);
+
     return (
       <section className="tocall">
         <div className='tocall__center'>
@@ -26,26 +49,62 @@ const Tocall = () => {
               </div>  
           </div>  
                          
-          <ul className="tocall__form">
-              <li className="tocall__item">                
-                  <img src={phone} alt="phone" className="tocall__phone" />                
-                <p className='tocall__field'>Номер телефона</p>
-              </li>
-              <li className="tocall__item">              
-                <img src={email} alt="email" className="tocall__email" />               
-                <p className='tocall__field'>E-mail</p>                
-              </li>              
-              <li className="tocall__item tocall__item_blue">
-                <button type="button" className='tocall__field_blue'>Перезвоните мне</button>
-              </li>
-              <li className="tocall__item_thin">
-                <input type="checkbox" className="tocall__check" />                
-                <span className='tocall__field_thin link'>Соглашаюсь с <Link to="/policy" className='tocall__btn'>условиями передачи данных</Link></span>                
-              </li> 
-          </ul>            
+          <form 
+            className="tocall__form"
+            onSubmit={handleSubmit}
+            noValidate
+          >
+            <label className="tocall__field">
+              <img src={phone} alt="phone" className="tocall__phone" />
+              <input
+                type="text"
+                placeholder="Номер телефона"
+                className="tocall__input"     
+                name="phone"               
+                pattern={regExp.phone}
+                value={values.phone || ""}
+                onChange={handleChange}
+                required
+              />
+              <span className="tocall__input-error">{errors.phone}</span>         
+            </label>
+            <label className="tocall__field">
+              <img src={email} alt="email" className="tocall__email" />
+              <input
+                type="email"
+                placeholder="E-mail"
+                className="tocall__input"       
+                name="email"                
+                pattern={regExp.email}
+                value={values.email || ""}
+                onChange={handleChange}
+                required
+              />
+              <span className="tocall__input-error">{errors.email}</span>         
+            </label>
+            <button
+               type="submit"
+               className={
+                isDisabled
+                 ? "tocall__field tocall__btn-submit link tocall__btn-submit_disabled"
+                 : "tocall__field tocall__btn-submit link"
+                }
+               disabled={isDisabled}         
+            >Перезвоните мне</button>
+            <label className="tocall__field_thin">
+              <input 
+                type="checkbox"
+                id="iagree" 
+                name="agree"
+                value="1"
+                className="tocall__check"             
+                required />
+             <span className='tocall__thin link'>Соглашаюсь с <Link to="/policy" className='tocall__btn'>условиями передачи данных</Link></span>
+            </label>        
+          </form>            
        </div>                         
      </section>
-    );
+    )
   };
   
   export default Tocall;

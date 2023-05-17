@@ -1,35 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import  './PopupWithForm.css';
-import { useForm } from "../../hooks/UseForm.js";
+import { useFormWithValidation } from "../../hooks/UseFormWithValidation";
 
 export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
-  const initValues = { nameInput: "", jobInput: "", emailInput: "", phoneInput: "" };
-  const { values, setValues, handleChange } = useForm(initValues);
+  const inputs = { name: '', email: '', phone: '' };
+  const { values, handleChange, errors, isValid, resetForm} = useFormWithValidation(inputs);
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [accept, setAccept] = useState(false);
+   
+  const handleChecked = (e) => {
+    setAccept(e.target.checked);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-      onSubmit({
-        userName: values.nameInput,
-        job: values.jobInput,
-        email: values.emailInput,
-        phone: values.phoneInput,
-    });
-    setValues(values);
+    onSubmit(values); 
   }
 
+  useEffect(() => {   
+      setIsDisabled(
+        !values.name || !values.email || !values.phone || !accept || !isValid
+      );   
+  }, [handleChange, isValid, accept, values]); 
+
+  useEffect(() => {
+    resetForm();    
+}, [onSubmit, resetForm])
+
   return isOpen ? (
-    <div
-      className={`popup form-popup ${isOpen && "popup_opened"}`}
+    <div className={`popup form-popup ${isOpen && "popup_opened"}`}
       onClick={onClose}
     >
-      <form        
-        className="popup__container"
-        onSubmit={handleSubmit}
+      <div        
+        className="popup__container"       
         onClick={(e) => {
           e.stopPropagation();
-        }}
-        noValidate
+        }}        
       >
         <button
           type="button"
@@ -37,59 +44,74 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
           title="Закрыть"
           onClick={onClose}
         ></button>
+        <form 
+           className="popup-form"
+           onSubmit={handleSubmit}
+           noValidate
+        >
         <h4 className="popup__title">Заявка на подключение</h4>
+        <label className="popup__field popup__field_top">
+          <input
+           type="text"
+           placeholder="Ваше имя"
+           className="popup__input"    
+           name="name"          
+           minLength="2"
+           maxLength="25"
+           pattern="[а-яА-Яa-zA-ZёË\- ]{1,}"
+           value={values.name || ''}
+           onChange={handleChange}
+           required
+         />
+         <span className="popup__input-error">{errors.name}</span>
+       </label>
+       <label className="popup__field">    
+          <input
+           type="email"
+           placeholder="E-mail (для уведомлений)"       
+           name="email"           
+           className="popup__input" 
+           pattern="^\S+@\S+\.\S+$"
+           value={values.email || ''}
+           onChange={handleChange}
+           required
+         />
+         <span className="popup__input-error">{errors.email}</span>
+      </label>
+      <label className="popup__field"> 
         <input
-        type="text"
-        placeholder="Ваше имя"
-        className="popup__field popup__field_top"
-        name="userName"
-        id="name-input"
-        value={values.nameInput}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="text"
-        placeholder="Название организации"
-        className="popup__field"
-        name="userJob"
-        id="job-input"
-        value={values.jobInput}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="text"
-        placeholder="E-mail(для уведомлений)"
-        className="popup__field"
-        name="email"
-        id="email-input"
-        value={values.emailInput}
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="text"
-        placeholder="Номер телефона"
-        className="popup__field"
-        name="userPhone"
-        id="phone-input"
-        value={values.phoneInput}
-        onChange={handleChange}
-        required
-      />
-        <button
+          type="tel"
+          placeholder="Номер телефона"        
+          name="phone"
+          data-tel-input         
+          maxLength="18"
+          className="popup__input"                          
+          value={values.phone || ''}
+          onChange={handleChange}
+          required
+        />
+        <span className="popup__input-error">{errors.phone}</span>
+      </label>
+      <button
           type="submit"
-          className="popup__btn-submit"
-          title="Send"
+          className={
+            isDisabled
+              ? "popup__btn-submit popup__btn-submit_disabled"
+              : "popup__btn-submit"
+          }
+          disabled={isDisabled}         
         >Отправить заявку</button>
-         <div className="popup__field_thin">
+         <label className="popup__field_thin">
             <input 
-              type="checkbox" 
-              className="popup__check" />
+              type="checkbox"             
+              name="agree"              
+              className="popup__check"
+              onClick={handleChecked}                                               
+              required />
             <span className='popup__thin'>Соглашаюсь с <Link to="/policy" className='popup__btn'>условиями передачи данных</Link></span>
-          </div>           
+          </label>           
       </form>
+      </div>
     </div>
   ) : null;
 }

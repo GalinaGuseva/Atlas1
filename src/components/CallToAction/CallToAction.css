@@ -40,14 +40,28 @@
     box-sizing: border-box;
     background: #F2F6FA;
     border-radius: 8px;
+    border: none;
     display: flex;
     align-items: center;
     padding: 20px 29px;
+}
+
+.call__input {
+    display: inline;
+    border: none;
+    background: #F2F6FA;
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     line-height: 160%;
-    color: #7E868E;
+    width: 184px;
+}
+
+.call__input:active,
+:hover,
+:focus {
+    outline: 0;
+    outline-offset: 0;
 }
 
 .call__phone {
@@ -66,11 +80,16 @@
     margin-right: 17px;
 }
 
-
-.call__bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.call__input-error {
+    color: #ee3465;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 1.2;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0;
 }
 
 .call__button {
@@ -83,12 +102,18 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #FFFFFF;
     margin-bottom: 10px;
     padding: 17px 30px;
-    background: #4A60AF;
-    border-radius: 8px;
+    background-color: rgb(2, 125, 27);
     border: none;
+    color: #FFFFFF;
+    border-radius: 8px;
+}
+
+.call__button_disabled {
+    background: #4A60AF;
+    border: none;
+    cursor: default;
 }
 
 .call__check {
@@ -304,7 +329,12 @@
     .call__field {
         max-width: 240px;
         padding: 10px;
+
+    }
+
+    .call__input {
         font-size: 12px;
+        width: 160px;
     }
 
     .call__phone {
