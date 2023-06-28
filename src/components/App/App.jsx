@@ -45,9 +45,9 @@ return (
       <FirstScreen onUpClick={handlePopupClick}/>         
       <About />
       <Preferences />
-      <Tocall onCallSubmit={handleSend}/> 
+      <Tocall onSubmit={handleSend}/> 
       <Quest />
-      <CallToAction onLastSubmit={handleSend}/>
+      <CallToAction onSubmit={handleSend}/>
       <Footer/> 
       <PopupWithForm 
             isOpen={isPopupWithFormOpen} 

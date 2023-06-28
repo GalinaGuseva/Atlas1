@@ -5,7 +5,7 @@ import { useFormWithValidation } from "../../hooks/UseFormWithValidation";
 
 export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
   const inputs = { name: '', email: '', phone: '' };
-  const { values, handleChange, errors, isValid, resetForm} = useFormWithValidation(inputs);
+  const { values, handleChange, handlePaste, errors, isValid, resetForm} = useFormWithValidation(inputs);
   const [isDisabled, setIsDisabled] = useState(true);
   const [accept, setAccept] = useState(false);
    
@@ -15,7 +15,8 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit(values); 
+    onSubmit(values);
+    setAccept(false);
   }
 
   useEffect(() => {   
@@ -25,8 +26,8 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
   }, [handleChange, isValid, accept, values]); 
 
   useEffect(() => {
-    resetForm();    
-}, [onSubmit, resetForm])
+    setAccept(false);     
+  }, [onSubmit, setAccept, resetForm]);
 
   return isOpen ? (
     <div className={`popup form-popup ${isOpen && "popup_opened"}`}
@@ -61,6 +62,7 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
            pattern="[а-яА-Яa-zA-ZёË\- ]{1,}"
            value={values.name || ''}
            onChange={handleChange}
+           onPaste={handlePaste}
            required
          />
          <span className="popup__input-error">{errors.name}</span>
@@ -74,6 +76,7 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
            pattern="^\S+@\S+\.\S+$"
            value={values.email || ''}
            onChange={handleChange}
+           onPaste={handlePaste}
            required
          />
          <span className="popup__input-error">{errors.email}</span>
@@ -82,12 +85,13 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
         <input
           type="tel"
           placeholder="Номер телефона"        
-          name="phone"
-          data-tel-input         
+          name="phone"                  
           maxLength="18"
           className="popup__input"                          
           value={values.phone || ''}
+          pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
           onChange={handleChange}
+          onPaste={handlePaste}
           required
         />
         <span className="popup__input-error">{errors.phone}</span>
@@ -106,7 +110,8 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
               type="checkbox"             
               name="agree"              
               className="popup__check"
-              onClick={handleChecked}                                               
+              onClick={handleChecked}
+              checked={accept}                                              
               required />
             <span className='popup__thin'>Соглашаюсь с <Link to="/policy" className='popup__btn'>условиями передачи данных</Link></span>
           </label>           

@@ -8,31 +8,32 @@ import time from '../../images/time.svg';
 import shopping from '../../images/shopping.svg';
 import gift from '../../images/gift.svg';
 import { useFormWithValidation } from "../../hooks/UseFormWithValidation";
-import { regExp } from "../../constants/RegExp";
-
 
 const CallToAction = ({ onSubmit }) => {
-  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation({   
-    email: "",
-    phone: "",
-  });
-  const [isDisabled, setIsDisabled] = useState(true);  
+  const inputs = { name: '', job: '', email: '', phone: '' };
+  const { values, handleChange, handlePaste, errors, isValid, resetForm} = useFormWithValidation(inputs);
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [accept, setAccept] = useState(false);
+
+  const handleChecked = (e) => {
+    setAccept(e.target.checked);
+  }
 
   function handleSubmit(e) {
-    e.preventDefault();
-    onSubmit(values); 
+    e.preventDefault();      
+    onSubmit(values);    
   }
 
   useEffect(() => {   
       setIsDisabled(
-        !values.email || !values.phone || !isValid
+        !values.name || !values.job ||!values.email || !values.phone || !accept || !isValid
       );   
-  }, [handleChange, isValid, values]);
+  }, [handleChange, isValid, accept, values]); 
 
   useEffect(() => {
     resetForm();
-  }, [resetForm]);
-
+    setAccept(false);     
+}, [onSubmit, setAccept, resetForm]);
 
     return (
       <section className="call">
@@ -48,13 +49,13 @@ const CallToAction = ({ onSubmit }) => {
                    type="text"
                    className="call__input"
                    placeholder="Ваше имя"        
-                   name="name"
-                   id="call-name-input"
+                   name="name"                  
                    minLength="2"
-                   maxLength="30"
-                   pattern={regExp.name}
+                   maxLength="25"
+                   pattern="[а-яА-Яa-zA-ZёË\- ]{1,}"
                    value={values.name || ""}
                    onChange={handleChange}
+                   onPaste={handlePaste}
                    required
                  />
                  <span className="call__input-error">{errors.name}</span>
@@ -67,10 +68,11 @@ const CallToAction = ({ onSubmit }) => {
                    name="job"                  
                    minLength="2"
                    maxLength="30"
-                   pattern={regExp.job}                 
+                   pattern="[а-яА-Яa-zA-ZёË\0-9\-().']{1,}"                
                    value={values.job || ""}
                    onChange={handleChange}
-                   required              
+                   onPaste={handlePaste}
+                   required                             
                  />
                  <span className="call__input-error">{errors.job}</span>
                </label>
@@ -81,9 +83,10 @@ const CallToAction = ({ onSubmit }) => {
                     className="call__input"
                     placeholder="E-mail"        
                     name="email"                   
-                    pattern={regExp.email}
+                    pattern="^\S+@\S+\.\S+$"
                     value={values.email || ""}
                     onChange={handleChange}
+                    onPaste={handlePaste}
                     required
                   />
                   <span className="call__input-error">{errors.email}</span>         
@@ -91,13 +94,14 @@ const CallToAction = ({ onSubmit }) => {
                <label className="call__field">
                   <img src={phone} alt="phone" className="call__phone" />
                   <input
-                    type="text"
+                    type="tel"
                     className="call__input"
                     placeholder="Номер телефона"        
                     name="phone"                   
-                    pattern={regExp.phone}
+                    pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
                     value={values.phone || ""}
                     onChange={handleChange}
+                    onPaste={handlePaste}
                     required
                   />
                   <span className="call__input-error">{errors.phone}</span>         
@@ -113,11 +117,11 @@ const CallToAction = ({ onSubmit }) => {
                >Отправить заявку</button>
                <label className="call__field_thin">
                   <input 
-                    type="checkbox"
-                    id="iagree" 
-                    name="agree"
-                    value="1"
-                    className="call__check"             
+                    type="checkbox"                    
+                    name="agree"                    
+                    className="call__check"                     
+                    onClick={handleChecked}
+                    checked={accept}             
                     required />
                   <span className='call__thin link'>Соглашаюсь с <Link to="/policy" className='call__btn'>условиями передачи данных</Link></span>
                </label>     

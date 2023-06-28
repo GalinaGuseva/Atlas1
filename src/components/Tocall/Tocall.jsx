@@ -7,29 +7,31 @@ import vk from '../../images/vk-icon.svg';
 import phone from '../../images/phone-icon.svg';
 import email from '../../images/email-icon.svg';
 import { useFormWithValidation } from "../../hooks/UseFormWithValidation";
-import { regExp } from "../../constants/RegExp";
 
 const Tocall = ({ onSubmit }) => {
-  const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation({   
-    email: "",
-    phone: "",
-  });
-  const [isDisabled, setIsDisabled] = useState(true);  
+  const inputs = { email: '', phone: '' };
+  const { values, handleChange, handlePaste, errors, isValid, resetForm} = useFormWithValidation(inputs);
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [accept, setAccept] = useState(false);
+
+  const handleChecked = (e) => {
+    setAccept(e.target.checked);
+  }
 
   function handleSubmit(e) {
-    e.preventDefault();
-    onSubmit(values); 
+    e.preventDefault();     
+    onSubmit(values);    
   }
 
   useEffect(() => {   
       setIsDisabled(
-        !values.email || !values.phone || !isValid
+        !values.email || !values.phone || !accept || !isValid
       );   
-  }, [handleChange, isValid, values]);
+  }, [handleChange, isValid, accept, values]); 
 
   useEffect(() => {
-    resetForm();
-  }, [resetForm]);
+    setAccept(false);     
+  }, [onSubmit, setAccept, resetForm]);
 
     return (
       <section className="tocall">
@@ -61,9 +63,10 @@ const Tocall = ({ onSubmit }) => {
                 placeholder="Номер телефона"
                 className="tocall__input"     
                 name="phone"               
-                pattern={regExp.phone}
+                pattern="^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
                 value={values.phone || ""}
                 onChange={handleChange}
+                onPaste={handlePaste}
                 required
               />
               <span className="tocall__input-error">{errors.phone}</span>         
@@ -72,12 +75,13 @@ const Tocall = ({ onSubmit }) => {
               <img src={email} alt="email" className="tocall__email" />
               <input
                 type="email"
-                placeholder="E-mail"
-                className="tocall__input"       
+                placeholder="E-mail"       
                 name="email"                
-                pattern={regExp.email}
-                value={values.email || ""}
+                className="tocall__input"                            
+                value={values.email || ''}
+                pattern="^\S+@\S+\.\S+$"
                 onChange={handleChange}
+                onPaste={handlePaste}
                 required
               />
               <span className="tocall__input-error">{errors.email}</span>         
@@ -93,12 +97,12 @@ const Tocall = ({ onSubmit }) => {
             >Перезвоните мне</button>
             <label className="tocall__field_thin">
               <input 
-                type="checkbox"
-                id="iagree" 
-                name="agree"
-                value="1"
-                className="tocall__check"             
-                required />
+               type="checkbox"             
+               name="agree"              
+               className="tocall__check"
+               onClick={handleChecked}
+               checked={accept}                                             
+               required />
              <span className='tocall__thin link'>Соглашаюсь с <Link to="/policy" className='tocall__btn'>условиями передачи данных</Link></span>
             </label>        
           </form>            
