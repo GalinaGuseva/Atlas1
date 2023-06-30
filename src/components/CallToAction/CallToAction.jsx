@@ -11,24 +11,13 @@ import { useFormWithValidation } from "../../hooks/UseFormWithValidation";
 
 const CallToAction = ({ onSubmit }) => {
   const inputs = { name: '', job: '', email: '', phone: '' };
-  const { values, handleChange, handlePaste, errors, isValid, resetForm} = useFormWithValidation(inputs);
-  const [isDisabled, setIsDisabled] = useState(true);
-  const [accept, setAccept] = useState(false);
-
-  const handleChecked = (e) => {
-    setAccept(e.target.checked);
-  }
+  const { values, handleChange, handlePaste, errors, isValid, resetForm} = useFormWithValidation(inputs); 
+  const [accept, setAccept] = useState(false); 
 
   function handleSubmit(e) {
     e.preventDefault();      
     onSubmit(values);    
-  }
-
-  useEffect(() => {   
-      setIsDisabled(
-        !values.name || !values.job ||!values.email || !values.phone || !accept || !isValid
-      );   
-  }, [handleChange, isValid, accept, values]); 
+  } 
 
   useEffect(() => {
     resetForm();
@@ -108,19 +97,15 @@ const CallToAction = ({ onSubmit }) => {
                </label>
                <button
                   type="submit"
-                  className={
-                   isDisabled
-                     ? "call__button link call__button_disabled"
-                     : "call__button link"
-                   }
-                  disabled={isDisabled}         
+                  className="call__button link"                  
+                  disabled={!values.email || !values.phone || !accept || !isValid}         
                >Отправить заявку</button>
                <label className="call__field_thin">
                   <input 
                     type="checkbox"                    
                     name="agree"                    
                     className="call__check"                     
-                    onClick={handleChecked}
+                    onChange={() => setAccept(!accept)}
                     checked={accept}             
                     required />
                   <span className='call__thin link'>Соглашаюсь с <Link to="/policy" className='call__btn'>условиями передачи данных</Link></span>

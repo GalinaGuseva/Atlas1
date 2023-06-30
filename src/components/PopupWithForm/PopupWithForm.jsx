@@ -5,27 +5,17 @@ import { useFormWithValidation } from "../../hooks/UseFormWithValidation";
 
 export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
   const inputs = { name: '', email: '', phone: '' };
-  const { values, handleChange, handlePaste, errors, isValid, resetForm} = useFormWithValidation(inputs);
-  const [isDisabled, setIsDisabled] = useState(true);
+  const { values, handleChange, handlePaste, errors, isValid, resetForm} = useFormWithValidation(inputs); 
   const [accept, setAccept] = useState(false);
-   
-  const handleChecked = (e) => {
-    setAccept(e.target.checked);
-  }
-
+ 
   function handleSubmit(e) {
     e.preventDefault();
     onSubmit(values);
     setAccept(false);
-  }
-
-  useEffect(() => {   
-      setIsDisabled(
-        !values.name || !values.email || !values.phone || !accept || !isValid
-      );   
-  }, [handleChange, isValid, accept, values]); 
+  } 
 
   useEffect(() => {
+    resetForm();
     setAccept(false);     
   }, [onSubmit, setAccept, resetForm]);
 
@@ -98,19 +88,15 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
       </label>
       <button
           type="submit"
-          className={
-            isDisabled
-              ? "popup__btn-submit popup__btn-submit_disabled"
-              : "popup__btn-submit"
-          }
-          disabled={isDisabled}         
+          className="popup__btn-submit"          
+          disabled={!values.email || !values.phone || !accept || !isValid}         
         >Отправить заявку</button>
          <label className="popup__field_thin">
             <input 
               type="checkbox"             
               name="agree"              
               className="popup__check"
-              onClick={handleChecked}
+              onChange={() => setAccept(!accept)}
               checked={accept}                                              
               required />
             <span className='popup__thin'>Соглашаюсь с <Link to="/policy" className='popup__btn'>условиями передачи данных</Link></span>

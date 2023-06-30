@@ -222,7 +222,7 @@
     }
 }
 
-.popup__btn-submit_disabled {
+.popup__btn-submit:disabled {
     background-color: rgb(146, 172, 224);
     cursor: default;
 }
