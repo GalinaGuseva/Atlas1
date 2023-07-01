@@ -1,23 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import  './PopupWithForm.css';
 import { useFormWithValidation } from "../../hooks/UseFormWithValidation";
 
 export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
-  const inputs = { name: '', email: '', phone: '' };
-  const { values, handleChange, handlePaste, errors, isValid, resetForm} = useFormWithValidation(inputs); 
-  const [accept, setAccept] = useState(false);
- 
+  const inputs = { name: '', email: '', phone: '' },
+  { values, handleChange, handlePaste, errors, isValid, resetForm} = useFormWithValidation(inputs), 
+  [errorText, setErrorText] = useState(),
+  [success, setSuccess] = useState(),
+  [accept, setAccept] = useState(false);
+
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit(values);
-    setAccept(false);
-  } 
+    if (!accept) {
+      setErrorText("Отметьте галочкой согласие на обработку персональных данных");
+      setTimeout(() => setErrorText(""), 2000);      
+    } else {       
+      onSubmit(values);
+      setSuccess("Данные успешно отправлены!");
+      setTimeout(() => setSuccess(""), 2000);
+      resetForm();
+      setAccept(false);      
+    }    
+  };  
 
-  useEffect(() => {
-    resetForm();
-    setAccept(false);     
-  }, [onSubmit, setAccept, resetForm]);
 
   return isOpen ? (
     <div className={`popup form-popup ${isOpen && "popup_opened"}`}
@@ -63,6 +69,7 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
            placeholder="E-mail (для уведомлений)"       
            name="email"           
            className="popup__input" 
+           maxLength="30"
            pattern="^\S+@\S+\.\S+$"
            value={values.email || ''}
            onChange={handleChange}
@@ -75,7 +82,8 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
         <input
           type="tel"
           placeholder="Номер телефона"        
-          name="phone"                  
+          name="phone"
+          minLength="8"                
           maxLength="18"
           className="popup__input"                          
           value={values.phone || ''}
@@ -89,18 +97,20 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
       <button
           type="submit"
           className="popup__btn-submit"          
-          disabled={!values.email || !values.phone || !accept || !isValid}         
+          disabled={!values.email || !values.phone || !isValid}         
         >Отправить заявку</button>
          <label className="popup__field_thin">
             <input 
               type="checkbox"             
               name="agree"              
               className="popup__check"
-              onChange={() => setAccept(!accept)}
+              onChange={(e) => setAccept(e.target.value)}
               checked={accept}                                              
-              required />
+             />
             <span className='popup__thin'>Соглашаюсь с <Link to="/policy" className='popup__btn'>условиями передачи данных</Link></span>
-          </label>           
+          </label>
+          <span className="popup__error">{errorText}</span>
+          <span className="popup__success">{success}</span>           
       </form>
       </div>
     </div>

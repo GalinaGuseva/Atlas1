@@ -76,7 +76,7 @@ const Tocall = ({ onSubmit }) => {
                 placeholder="E-mail"       
                 name="email"                
                 className="tocall__input"                
-                maxLength="40"                       
+                maxLength="30"                       
                 value={values.email || ''}
                 pattern="^\S+@\S+\.\S+$"
                 onChange={handleChange}
@@ -96,6 +96,7 @@ const Tocall = ({ onSubmit }) => {
                name="agree"              
                className="tocall__check"
                onChange={(e) => setAccept(e.target.value)}
+               checked={accept}
                />
              <span className='tocall__thin link'>Соглашаюсь с <Link to="/policy" className='tocall__btn'>условиями передачи данных</Link></span>
             </label>
