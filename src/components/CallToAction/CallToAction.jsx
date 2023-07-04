@@ -9,22 +9,20 @@ import shopping from '../../images/shopping.svg';
 import gift from '../../images/gift.svg';
 import { useFormWithValidation } from "../../hooks/UseFormWithValidation";
 
-const CallToAction = ({ onSubmit }) => {
+const CallToAction = ({ onSubmit, success, isSending, error }) => {
   const inputs = { name: '', job: '', email: '', phone: '' };
   const { values, handleChange, handlePaste, errors, isValid, resetForm} = useFormWithValidation(inputs), 
-  [errorText, setErrorText] = useState(),
-  [success, setSuccess] = useState(),
+  [errorText, setErrorText] = useState(),  
   [accept, setAccept] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
     if (!accept) {
       setErrorText("Отметьте галочкой согласие на обработку персональных данных");
-      setTimeout(() => setErrorText(""), 2000);      
-    } else {       
-      onSubmit(values);
-      setSuccess("Данные успешно отправлены!");
-      setTimeout(() => setSuccess(""), 2000);
+      setTimeout(() => setErrorText(""), 3000);      
+    } else { 
+      let message = `Имя: ${values.name}, организация: ${values.job}, почта: ${values.email}, тел: ${values.phone}`;          
+      onSubmit(message);      
       resetForm();
       setAccept(false);      
     }    
@@ -119,8 +117,10 @@ const CallToAction = ({ onSubmit }) => {
                  />
                  <span className='call__thin link'>Соглашаюсь с <Link to="/policy" className='call__btn'>условиями передачи данных</Link></span>
               </label>
-              <span className="call__error">{errorText}</span>
-              <span className="call__success">{success}</span>    
+              <span className="call__agree-error">{errorText}</span>
+              <span className="call__success">{success}</span>
+              <span className="call__error">{error}</span>
+              <span className="call__sending">{isSending}</span>   
            </form>                 
             
           <div className='call__text'>

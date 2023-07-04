@@ -222,7 +222,7 @@
     color: #2E363E;
 }
 
-.call__error {
+.call__error.call__agree-error {
     color: #ee3465;
     font-size: 12px;
     font-weight: 400;
@@ -234,6 +234,16 @@
 
 .call__success {
     color: #048230;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.call__sending {
+    color: #3d0482;
     font-size: 12px;
     font-weight: 400;
     line-height: 1.2;

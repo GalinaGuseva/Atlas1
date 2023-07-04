@@ -8,11 +8,10 @@ import phone from '../../images/phone-icon.svg';
 import email from '../../images/email-icon.svg';
 import { useFormWithValidation } from "../../hooks/UseFormWithValidation";
 
-const Tocall = ({ onSubmit }) => {
+const Tocall = ({ onSubmit, success, isSending, error }) => {
   const inputs = { email: '', phone: '' },
   { values, handleChange, handlePaste, errors, isValid, resetForm } = useFormWithValidation(inputs),  
-  [errorText, setErrorText] = useState(),
-  [success, setSuccess] = useState(),
+  [errorText, setErrorText] = useState(),  
   [accept, setAccept] = useState(false);
 
   function handleSubmit(e) {
@@ -21,9 +20,8 @@ const Tocall = ({ onSubmit }) => {
       setErrorText("Отметьте галочкой согласие на обработку персональных данных");
       setTimeout(() => setErrorText(""), 2000);      
     } else {       
-      onSubmit(values);
-      setSuccess("Данные успешно отправлены!");
-      setTimeout(() => setSuccess(""), 2000);
+      let message = `Почта: ${values.email}, тел: ${values.phone}`;          
+      onSubmit(message);      
       resetForm();
       setAccept(false);      
     }    
@@ -100,8 +98,10 @@ const Tocall = ({ onSubmit }) => {
                />
              <span className='tocall__thin link'>Соглашаюсь с <Link to="/policy" className='tocall__btn'>условиями передачи данных</Link></span>
             </label>
-            <span className="tocall__error">{errorText}</span>
-            <span className="tocall__success">{success}</span>       
+            <span className="tocall__agree-error">{errorText}</span>
+            <span className="tocall__success">{success}</span>
+            <span className="tocall__error">{error}</span>
+            <span className="tocall__sending">{isSending}</span>      
           </form>            
        </div>                         
      </section>

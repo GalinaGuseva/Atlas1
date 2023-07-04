@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom';
 import  './PopupWithForm.css';
 import { useFormWithValidation } from "../../hooks/UseFormWithValidation";
 
-export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
+export default function PopupWithForm({ isOpen, onClose, onSubmit, success, isSending, error }) {
   const inputs = { name: '', email: '', phone: '' },
   { values, handleChange, handlePaste, errors, isValid, resetForm} = useFormWithValidation(inputs), 
-  [errorText, setErrorText] = useState(),
-  [success, setSuccess] = useState(),
+  [errorText, setErrorText] = useState(),  
   [accept, setAccept] = useState(false);
 
   function handleSubmit(e) {
@@ -16,9 +15,8 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
       setErrorText("Отметьте галочкой согласие на обработку персональных данных");
       setTimeout(() => setErrorText(""), 2000);      
     } else {       
-      onSubmit(values);
-      setSuccess("Данные успешно отправлены!");
-      setTimeout(() => setSuccess(""), 2000);
+      let message = `Имя: ${values.name}, почта: ${values.email}, тел: ${values.phone}`;          
+      onSubmit(message);     
       resetForm();
       setAccept(false);      
     }    
@@ -109,8 +107,10 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit }) {
              />
             <span className='popup__thin'>Соглашаюсь с <Link to="/policy" className='popup__btn'>условиями передачи данных</Link></span>
           </label>
-          <span className="popup__error">{errorText}</span>
-          <span className="popup__success">{success}</span>           
+          <span className="popup__agree-error">{errorText}</span>
+          <span className="popup__success">{success}</span>
+          <span className="popup__error">{error}</span>
+          <span className="popup__sending">{isSending}</span>        
       </form>
       </div>
     </div>
