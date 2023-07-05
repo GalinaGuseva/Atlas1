@@ -71,7 +71,7 @@
     max-width: 580px;
     display: flex;
     flex-direction: column;
-    padding-top: 37px;
+    padding-top: 0;
 }
 
 .about__item {

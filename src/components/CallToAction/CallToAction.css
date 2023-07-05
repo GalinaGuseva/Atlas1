@@ -14,15 +14,14 @@
 .call__form {
     max-width: 500px;
     display: flex;
-    padding: 62px 72px;
+    padding: 50px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 30px;
     background: #FFFFFF;
     border: 8px solid #4A60AF;
     border-radius: 5px;
     list-style: none;
-    margin: 0 0 0 20px;
+    margin: 0;
 }
 
 .call__header {
@@ -33,6 +32,8 @@
     line-height: 133%;
     text-align: center;
     color: #2E363E;
+    padding-bottom: 30px;
+    margin: 0;
 }
 
 .call__field {
@@ -45,6 +46,7 @@
     align-items: center;
     padding: 20px 29px;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .call__input {
@@ -89,7 +91,7 @@
     width: 100%;
     position: absolute;
     left: 15px;
-    bottom: 10px;
+    bottom: 2px;
     padding: 0;
 }
 
@@ -103,7 +105,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding: 17px 30px;
     background-color: #4A60AF;
     border: none;
@@ -129,7 +131,7 @@
 .call__field_thin {
     font-size: 11px;
     line-height: 130%;
-    padding-left: 7px;
+    padding-bottom: 10px;
     color: #414243;
     width: 100%;
     height: 14px;
@@ -222,7 +224,17 @@
     color: #2E363E;
 }
 
-.call__error.call__agree-error {
+.call__error {
+    color: #ee3465;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.call__agree-error {
     color: #ee3465;
     font-size: 12px;
     font-weight: 400;
@@ -345,7 +357,6 @@
         max-width: 260px;
         display: flex;
         padding: 14px;
-        gap: 20px;
         background: #FFFFFF;
         border: none;
         margin: 0 auto 25px;
@@ -355,12 +366,13 @@
         width: 139px;
         margin: 0 auto;
         font-size: 14px;
+        padding-bottom: 20px;
     }
 
     .call__field {
         max-width: 240px;
         padding: 10px;
-
+        margin-bottom: 20px;
     }
 
     .call__input {
@@ -386,6 +398,7 @@
     .call__field_thin {
         font-size: 10px;
         height: 13px;
+        margin-bottom: 5px;
     }
 
     .call__thin {
@@ -397,6 +410,22 @@
     }
 
     .call__input-error {
-        bottom: 5px;
+        bottom: 0;
+    }
+
+    .call__error {
+        font-size: 10px;
+    }
+
+    .call__agree-error {
+        font-size: 10px;
+    }
+
+    .call__success {
+        font-size: 10px;
+    }
+
+    .call__sending {
+        font-size: 10px;
     }
 }

@@ -6,7 +6,7 @@
 .tocall__center {
     display: flex;
     max-width: 1180px;
-    padding: 50px 20px;
+    padding: 30px 20px;
     margin: 0 auto;
     justify-content: space-between;
 }
@@ -185,11 +185,21 @@
     width: 90%;
     position: absolute;
     left: 25px;
-    bottom: 10px;
+    bottom: 5px;
     padding: 0;
 }
 
-.tocall__error.tocall__agree-error {
+.tocall__agree-error {
+    color: #ee3465;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.2;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.tocall__error {
     color: #ee3465;
     font-size: 11px;
     font-weight: 400;
@@ -261,6 +271,7 @@
 @media screen and (max-width: 600px) {
     .tocall__center {
         max-width: 280px;
+        padding: 20px;
     }
 
     .tocall__block {
@@ -342,6 +353,6 @@
     }
 
     .tocall__input-error {
-        bottom: 5px;
+        bottom: 2px;
     }
 }
