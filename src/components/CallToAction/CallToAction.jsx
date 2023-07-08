@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
+import ReCAPTCHA from "react-google-recaptcha";
 import './CallToAction.css';
 import phone from '../../images/phone-icon.svg';
 import email from '../../images/email-icon.svg';
@@ -10,9 +11,11 @@ import gift from '../../images/gift.svg';
 import { useFormWithValidation } from "../../hooks/UseFormWithValidation";
 
 const CallToAction = ({ onSubmit, success, isSending, error }) => {
-  const inputs = { name: '', job: '', email: '', phone: '' };
-  const { values, handleChange, handlePaste, errors, isValid, resetForm} = useFormWithValidation(inputs), 
-  [errorText, setErrorText] = useState(),  
+  const inputs = { name: '', job: '', email: '', phone: '' },
+  { values, handleChange, handlePaste, setValues, errors, isValid, resetForm} = useFormWithValidation(inputs), 
+  [errorText, setErrorText] = useState(),
+  [isCaptchaSuccessful, setIsCaptchaSuccess] = useState(false),
+  KEY = process.env.REACT_APP_RECAPTCHA,
   [accept, setAccept] = useState(false);
 
   function handleSubmit(e) {
@@ -20,13 +23,24 @@ const CallToAction = ({ onSubmit, success, isSending, error }) => {
     if (!accept) {
       setErrorText("Отметьте галочкой согласие на обработку персональных данных");
       setTimeout(() => setErrorText(""), 3000);      
-    } else { 
+    } else if (!isCaptchaSuccessful){
+      setErrorText("Подтвердите, что вы не робот!");
+      setTimeout(() => setErrorText(""), 3000);      
+    } else {
       let message = `Имя: ${values.name}, организация: ${values.job}, почта: ${values.email}, тел: ${values.phone}`;          
       onSubmit(message);      
       resetForm();
-      setAccept(false);      
+      setAccept(false);
+      setIsCaptchaSuccess(false);    
     }    
-  };  
+  };   
+  
+  function handleLast(e) {
+    setValues({ ...values, last: e.target.value });
+    setTimeout(() => resetForm(), 10000);
+    setTimeout(() => setAccept(false), 10000);    
+  }
+
 
     return (
       <section className="call">
@@ -60,8 +74,7 @@ const CallToAction = ({ onSubmit, success, isSending, error }) => {
                   placeholder="Название организации"        
                   name="job"                  
                   minLength="2"
-                  maxLength="30"
-                  pattern="[а-яА-Яa-zA-ZёË\0-9\-().']{1,}"                
+                  maxLength="30"                                 
                   value={values.job || ""}
                   onChange={handleChange}
                   onPaste={handlePaste}
@@ -105,7 +118,7 @@ const CallToAction = ({ onSubmit, success, isSending, error }) => {
               <button
                  type="submit"
                  className="call__button link"                  
-                 disabled={!values.email || !values.phone || !isValid}         
+                 disabled={!values.name ||!values.email || !values.phone || values.last || !isValid}         
               >Отправить заявку</button>
               <label className="call__field_thin">
                  <input 
@@ -117,6 +130,21 @@ const CallToAction = ({ onSubmit, success, isSending, error }) => {
                  />
                  <span className='call__thin link'>Соглашаюсь с <Link to="/policy" className='call__btn'>условиями передачи данных</Link></span>
               </label>
+              <label className="call__field_last">
+              <input 
+               type="text"
+               placeholder="Фамилия"                         
+               name="last"              
+               className="call__last"
+               onChange={handleLast}
+               value={values.last|| ''}
+               autoComplete="off"
+               />               
+            </label> 
+              <ReCAPTCHA
+                 sitekey={KEY}
+                 onChange={() => setIsCaptchaSuccess(true)}                                                            
+          />
               <span className="call__agree-error">{errorText}</span>
               <span className="call__success">{success}</span>
               <span className="call__error">{error}</span>

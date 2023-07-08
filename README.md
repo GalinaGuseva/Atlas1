@@ -2,14 +2,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Как скопировать и запустить проект локально:
 
-In the project directory, you can run:
+### - Проверить, установлена ли на компьютере Node: 
+   $ node -v
 
-### `npm start`
+### - Клонируем репозиторий:
+    git clone https://github.com/GalinaGuseva/Atlas1.git
+  
+### - Переходим в папку с проектом: 
+    cd Atlas1  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### -  Устанавливаем зависимости
+    npm install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### - Запускаем проект
+    npm run start   

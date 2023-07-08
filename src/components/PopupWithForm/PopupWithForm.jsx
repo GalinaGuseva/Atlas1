@@ -5,7 +5,7 @@ import { useFormWithValidation } from "../../hooks/UseFormWithValidation";
 
 export default function PopupWithForm({ isOpen, onClose, onSubmit, success, isSending, error }) {
   const inputs = { name: '', email: '', phone: '' },
-  { values, handleChange, handlePaste, errors, isValid, resetForm} = useFormWithValidation(inputs), 
+  { values, handleChange, handlePaste, setValues, errors, isValid, resetForm} = useFormWithValidation(inputs), 
   [errorText, setErrorText] = useState(),  
   [accept, setAccept] = useState(false);
 
@@ -22,6 +22,11 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit, success, isSe
     }    
   };  
 
+  function handleLast(e) {
+    setValues({ ...values, last: e.target.value });
+    setTimeout(() => resetForm(), 10000);
+    setTimeout(() => setAccept(false), 10000);    
+  }
 
   return isOpen ? (
     <div className={`popup form-popup ${isOpen && "popup_opened"}`}
@@ -95,7 +100,7 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit, success, isSe
       <button
           type="submit"
           className="popup__btn-submit"          
-          disabled={!values.email || !values.phone || !isValid}         
+          disabled={!values.email || !values.phone || values.last || !isValid}         
         >Отправить заявку</button>
          <label className="popup__field_thin">
             <input 
@@ -107,6 +112,17 @@ export default function PopupWithForm({ isOpen, onClose, onSubmit, success, isSe
              />
             <span className='popup__thin'>Соглашаюсь с <Link to="/policy" className='popup__btn'>условиями передачи данных</Link></span>
           </label>
+          <label className="popup__field_last">
+              <input 
+               type="text"
+               placeholder="Фамилия"                         
+               name="last"              
+               className="popup__last"
+               onChange={handleLast}
+               value={values.last|| ''}
+               />
+               
+            </label> 
           <span className="popup__agree-error">{errorText}</span>
           <span className="popup__success">{success}</span>
           <span className="popup__error">{error}</span>

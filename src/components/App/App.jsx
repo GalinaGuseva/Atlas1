@@ -17,8 +17,8 @@ const App = () => {
   [error, setError] = useState(false),
   [isMenuOpen, setIsMenuOpen] = useState(false),
   token = process.env.REACT_APP_TOKEN,
-  chat_id = process.env.REACT_APP_CHAT,
-  URL = `https://api.telegram.org/bot${token}/sendMessage`;
+  chat_id = process.env.REACT_APP_CHAT,  
+  URL = `https://api.telegram.org/bot${token}/sendMessage`; 
 
   function send(url, data) {
     let text = JSON.stringify(data)
@@ -34,9 +34,8 @@ const App = () => {
       }
       return Promise.reject(new Error(`Ошибка ${res.status}`));
     });
-  }
+  }  
   
-
   function toggleMenu() {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -67,8 +66,9 @@ const App = () => {
       setTimeout(() => {       
         setError(false)
       }, 5000)
-    })  
-};
+    })
+   
+}
 
 return (
   <>
@@ -88,10 +88,9 @@ return (
             success={success} 
             isSending={isSending} 
             error={error}                            
-            />        
+            />      
 </>  
         
   );
 }
-
 export default App;

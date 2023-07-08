@@ -9,7 +9,7 @@
     max-width: 400px;
     flex-direction: column;
     justify-content: center;
-    padding: 246px 0 60px;
+    padding: 246px 0 150px;
     text-align: center;
     margin: 0 auto;
 }
@@ -36,16 +36,10 @@
     margin: 0 auto;
 }
 
-@media screen and (max-width: 768px) {
-    .not-found {
-        padding: 408px 0 222px;
-    }
-}
-
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 400px) {
     .not-found {
         max-width: 300px;
-        padding: 329px 0 30px;
+        padding: 120px 0;
     }
 
     .not-found__title {
@@ -55,7 +49,7 @@
 
     .not-found__subtitle {
         font-size: 12px;
-        margin: 0 auto 284px;
+        margin: 0 auto 70px;
     }
 
     .not-found__link {
