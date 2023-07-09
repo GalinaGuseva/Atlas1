@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Atlas1/static/css/main.c37cdb63.css",
-    "main.js": "/Atlas1/static/js/main.251f4b78.js",
+    "main.js": "/Atlas1/static/js/main.91fec6aa.js",
     "static/js/496.3505bf11.chunk.js": "/Atlas1/static/js/496.3505bf11.chunk.js",
     "static/media/Montserrat-SemiBoldItalic.ttf": "/Atlas1/static/media/Montserrat-SemiBoldItalic.a8c8285681c31cae8e5d.ttf",
     "static/media/Montserrat-SemiBold.ttf": "/Atlas1/static/media/Montserrat-SemiBold.d5e0cc788cba9ced1fb9.ttf",
@@ -39,11 +39,11 @@
     "static/media/close-black.svg": "/Atlas1/static/media/close-black.d3a3271693dfdc0eba45.svg",
     "static/media/Close.svg": "/Atlas1/static/media/Close.039f1f5203f653b4bacd.svg",
     "main.c37cdb63.css.map": "/Atlas1/static/css/main.c37cdb63.css.map",
-    "main.251f4b78.js.map": "/Atlas1/static/js/main.251f4b78.js.map",
+    "main.91fec6aa.js.map": "/Atlas1/static/js/main.91fec6aa.js.map",
     "496.3505bf11.chunk.js.map": "/Atlas1/static/js/496.3505bf11.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c37cdb63.css",
-    "static/js/main.251f4b78.js"
+    "static/js/main.91fec6aa.js"
   ]
 }
