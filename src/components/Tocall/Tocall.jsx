@@ -50,12 +50,33 @@ const Tocall = ({ onSubmit, success, isSending, error }) => {
                 <p className='tocall__text'>Также связаться с нами можно в соцсетях:</p>
               </div>
               <div className='tocall__icons'>
-                <button type="button" className="tocall__button link_button"
+              <a
+              className="tocall__link link"
+              href="https://www.viber.com/ru/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+             <button type="button" className="tocall__button"
                  ><img src={viber} alt="viber" className="tocall__icon" />Viber</button>
-                <button type="button" className="tocall__button link_button"
+            </a>               
+            <a
+              className="tocall__link link"
+              href="https://web.telegram.org/a/#807575922"
+              target="_blank"
+              rel="noopener noreferrer"
+            >  
+                <button type="button" className="tocall__button"
                  ><img src={telegram} alt="telegram" className="tocall__icon" />Telegram</button>
-                <button type="button" className="tocall__button link_button"
+              </a>   
+              <a
+              className="tocall__link link"
+              href="https://vk.com/im?sel=8924881"
+              target="_blank"
+              rel="noopener noreferrer"
+            >     
+                <button type="button" className="tocall__button"
                  ><img src={vk} alt="vk" className="tocall__icon" />VK</button>
+               </a>  
               </div>  
           </div>  
                          

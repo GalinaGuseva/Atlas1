@@ -46,6 +46,10 @@
     padding: 40px 20px;
 }
 
+.tocall__link {
+    text-decoration: none;
+}
+
 .tocall__button {
     width: 135px;
     height: 37px;
