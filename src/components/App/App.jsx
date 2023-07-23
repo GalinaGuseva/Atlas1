@@ -77,9 +77,9 @@ return (
       <FirstScreen onUpClick={handlePopupClick}/>         
       <About />
       <Preferences />
-      <Tocall onSubmit={handleSend} success={success} isSending={isSending} error={error}/> 
+      <Tocall onSubmit={handleSend} success={success} isSending={isSending} error={error} /> 
       <Quest />
-      <CallToAction onSubmit={handleSend} success={success} isSending={isSending} error={error}/>
+      <CallToAction onSubmit={handleSend} success={success} isSending={isSending} error={error} />
       <Footer/> 
       <PopupWithForm 
             isOpen={isPopupWithFormOpen} 

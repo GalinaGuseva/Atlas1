@@ -9,13 +9,13 @@ import NotFound from "./components/NotFound/NotFound";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( 
-    <Router basename="Atlas1">
-      <Routes>
+  <Router basename="Atlas1">
+    <Routes>
       <Route path="/" element={<App />} />      
       <Route exact path="/policy" element={<Policy />} />
       <Route exact path="/*" element={<NotFound />} />   
-      </Routes>      
-    </Router>  
+  </Routes>      
+</Router> 
 );
 
 // If you want to start measuring performance in your app, pass a function

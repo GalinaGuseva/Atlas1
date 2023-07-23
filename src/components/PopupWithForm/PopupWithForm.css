@@ -158,46 +158,6 @@
     padding: 0;
 }
 
-.popup__error {
-    color: #ee3465;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.2;
-    width: 100%;
-    padding: 0;
-    margin: 0 auto;
-}
-
-.popup__agree-error {
-    color: #ee3465;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.2;
-    width: 100%;
-    padding: 0;
-    margin: 0 auto;
-}
-
-.popup__success {
-    color: #3ddc84;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.2;
-    width: 100%;
-    padding: 0;
-    margin: 0 auto;
-}
-
-.popup__sending {
-    color: #9a0a89;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1.2;
-    width: 100%;
-    padding: 0;
-    margin: 0 auto;
-}
-
 .popup__title {
     font-style: normal;
     font-weight: 900;
@@ -246,23 +206,7 @@
         height: 46px;
         margin: 15px auto;
         font-size: 14px;
-    }
-
-    .popup__error {
-        font-size: 10px;
-    }
-
-    .popup__agree-error {
-        font-size: 10px;
-    }
-
-    .popup__success {
-        font-size: 10px;
-    }
-
-    .popup__sending {
-        font-size: 10px;
-    }
+    }   
 }
 
 .popup__btn-submit:disabled {

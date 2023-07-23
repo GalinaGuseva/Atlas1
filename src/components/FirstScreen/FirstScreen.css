@@ -5,7 +5,7 @@
 .first__center {
   display: flex;
   flex-direction: column;
-  max-width: 1100px;
+  max-width: 1200px;
   min-height: 690px;
   padding: 65px 0;
   margin: 0 auto;
@@ -67,11 +67,12 @@
 
 .first__button {
   margin: 50px 0;
-  width: 355px;
+  width: 100%;
+  max-width: 355px;
   height: 70px;
   background-color: #E8246B;
   border-radius: 25px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: none;
   color: white;
   font-style: italic;
@@ -85,6 +86,29 @@
   align-items: center;
   justify-content: center;
   z-index: 10;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.flare {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 45px;
+  transform: skewX(-45deg);
+  animation: flareAnimation;
+  left: -150%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.7));
+  animation: flareAnimation 3s infinite linear;
+}
+
+@keyframes flareAnimation {
+  0% {
+      left: -150%;
+  }
+  100% {
+      left: 150%;
+  }
 }
 
 .first__list {
@@ -274,11 +298,11 @@
 
   .first__button {
     margin: 20px auto 30px;
-    width: 183px;
-    height: 33px;
+    width: 200px;
+    height: 50px;
     font-size: 12px;
     line-height: 15px;
-    padding: 15px;
+    padding: 5px;
   }
 
   .first__list {

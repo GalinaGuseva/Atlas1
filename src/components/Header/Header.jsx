@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 
-export default function HeaderMain({ onSendClick, onShowMenu }) {
+export default function Header({ onSendClick, onShowMenu }) {
   return (
     <header className="header">
       <div className='header__center'>
